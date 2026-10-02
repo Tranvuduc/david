@@ -1,0 +1,1446 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thư Viện Cải Chánh & Thần Học Cải Chánh Tiếng Việt</title>
+    <meta name="description" content="Hơn 3.500 sách và tài liệu thần học Cải Chánh: đọc, tải, theo dõi tiền đồ. Free Reformed books and creeds, with Vietnamese resources.">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #7c3aed;
+            --accent: #f59e0b;
+            --bg-light: #f8fafc;
+            --bg-dark: #1e293b;
+            --text-dark: #0f172a;
+            --text-light: #f1f5f9;
+            --border: #e2e8f0;
+            --shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #1e3a8a 0%, #7c3aed 100%);
+            min-height: 100vh;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.9) 0%, rgba(124, 58, 237, 0.9) 100%);
+            color: white;
+            padding: 4rem 1rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-intro {
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto 3rem;
+        }
+
+        .step {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: left;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .step-number {
+            display: inline-block;
+            width: 28px;
+            height: 28px;
+            background: var(--accent);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 28px;
+            font-weight: 700;
+            margin-right: 0.75rem;
+            font-size: 0.9rem;
+        }
+
+        .step h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .step p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            line-height: 1.5;
+        }
+
+        /* Main Content */
+        .main-content {
+            background: var(--bg-light);
+            padding: 3rem 1rem;
+            min-height: 100vh;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            text-align: center;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        /* Stats Section */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Filter Section */
+        .filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+            padding: 0 1rem;
+        }
+
+        .filter-btn {
+            padding: 0.75rem 1.5rem;
+            border: 2px solid var(--primary);
+            background: white;
+            color: var(--primary);
+            border-radius: 25px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+
+        /* Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .content-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+            min-height: 60px;
+        }
+
+        .card-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            font-size: 0.85rem;
+        }
+
+        .meta-tag {
+            background: var(--bg-light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            color: #64748b;
+            font-size: 0.8rem;
+        }
+
+        .meta-tag.author {
+            background: #dbeafe;
+            color: var(--primary);
+        }
+
+        .meta-tag.type {
+            background: #f3e8ff;
+            color: var(--secondary);
+        }
+
+        .card-description {
+            font-size: 0.9rem;
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+
+        .format-icons {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .format-icon {
+            width: 24px;
+            height: 24px;
+            background: var(--bg-light);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+        }
+
+        /* Featured Section */
+        .featured {
+            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+            padding: 3rem 1rem;
+            margin: 3rem 0;
+        }
+
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .featured-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .featured-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .featured-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .featured-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .featured-author {
+            font-size: 1rem;
+            color: var(--secondary);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .featured-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+
+        .featured-description {
+            font-size: 0.95rem;
+            color: #64748b;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .featured-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .featured-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Search Section */
+        .search-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            padding-left: 3rem;
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            font-size: 1rem;
+            background: white;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #94a3b8;
+            font-size: 1.2rem;
+        }
+
+        /* Category Sections */
+        .category-section {
+            margin-bottom: 3rem;
+        }
+
+        .category-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .category-item {
+            background: white;
+            padding: 1.25rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: var(--text-dark);
+        }
+
+        .category-item:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .category-icon {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+            color: var(--primary);
+        }
+
+        .category-name {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .category-count {
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-dark);
+            color: var(--text-light);
+            padding: 3rem 1rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 2rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid #334155;
+            text-align: center;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+            .filters {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .filter-btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .logo {
+                font-size: 1.25rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        /* Loading state */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Badge for new/exclusive content */
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            background: var(--accent);
+            color: white;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+        }
+
+        /* Mobile menu toggle */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                padding: 1rem;
+                box-shadow: var(--shadow-lg);
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <a href="/" class="logo">Thư Viện <span>Cải Chánh</span></a>
+            <button class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav class="nav-links">
+                <a href="#home" class="nav-link">Trang Chủ</a>
+                <a href="#books" class="nav-link">Sách</a>
+                <a href="#authors" class="nav-link">Tác Giả</a>
+                <a href="#topics" class="nav-link">Chủ Đề</a>
+                <a href="#about" class="nav-link">Giới Thiệu</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Thư Viện Cải Chánh & Thần Học Cải Chánh Tiếng Việt</h1>
+            <p>Hơn 3.500 sách và tài liệu thần học Cải Chánh: đọc, tải, theo dõi tiền đồ.</p>
+            
+            <div class="hero-intro">
+                <strong>Đường bộ giảng các thiết bị</strong><br><br>
+                Mã này giống như chìa khóa riêng cựa bạn: ai biết mã đều xem và sữa dụng tiền đồ theo cách bạn. Nhập cúng mã trên máy khác để đọc tiền đồ.
+            </div>
+
+            <div class="steps">
+                <div class="step">
+                    <h3><span class="step-number">1</span>Mợi tin Chúa</h3>
+                    <p>Lộ trình 30 năm nhẹ nhàng, mỗi ngày 10 phút. Hãy bắt đầu ở đây nếu bạn chưa biết Đức Chúa Trời.</p>
+                </div>
+                <div class="step">
+                    <h3><span class="step-number">2</span>Nơi dựng đời sống thuốc linh</h3>
+                    <p>Kinh Thánh, cầu nguyện, thodd phượng: mỗi tuần mốt bữc nhớ.</p>
+                </div>
+                <div class="step">
+                    <h3><span class="step-number">3</span>Hiểu Đức tin Cải Chánh</h3>
+                    <p>Mởi phật để hiểu giáo lý nền tảng, rỏi đọc sáu hơn.</p>
+                </div>
+                <div class="step">
+                    <h3><span class="step-number">4</span>Dấn dắt và phục vụ</h3>
+                    <p>Dành cho mục sư, người hưng dẫn nhóm nhỏm nhớ về gia đình.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Stats Section -->
+        <div class="container">
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="stat-number">1306</div>
+                    <div class="stat-label">Tác Phẩm</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">368</div>
+                    <div class="stat-label">Có PDF</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">371</div>
+                    <div class="stat-label">Có EPUB</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">234</div>
+                    <div class="stat-label">Có Sách Nói</div>
+                </div>
+            </div>
+
+            <!-- Filter Section -->
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">Tất Cả</button>
+                <button class="filter-btn" data-filter="new">Mới</button>
+                <button class="filter-btn" data-filter="pdf">PDF</button>
+                <button class="filter-btn" data-filter="epub">EPUB</button>
+                <button class="filter-btn" data-filter="audio">Sách Nói</button>
+                <button class="filter-btn" data-filter="theology">Thần Học</button>
+                <button class="filter-btn" data-filter="sermon">Bài Giảng</button>
+                <button class="filter-btn" data-filter="devotional">Suy Gẫm</button>
+            </div>
+
+            <!-- Search -->
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" class="search-input" placeholder="Tìm kiếm sách, tác giả, chủ đề..." id="search-input">
+            </div>
+        </div>
+
+        <!-- Featured Content -->
+        <section class="featured">
+            <div class="container">
+                <h2 class="section-title">Nổi Bật</h2>
+                <div class="featured-grid" id="featured-content">
+                    <!-- Featured items will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Content Grid -->
+        <section class="container">
+            <h2 class="section-title">Tài Liệu Thần Học</h2>
+            <div class="content-grid" id="content-grid">
+                <!-- Content items will be populated by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Category Sections -->
+        <section class="container">
+            <h2 class="section-title">Mục Thể Loại</h2>
+            
+            <div class="category-section">
+                <h3 class="category-title">
+                    <i class="fas fa-book-open"></i>
+                    Thần Học Hệ Thống
+                </h3>
+                <div class="category-grid">
+                    <a href="#" class="category-item">
+                        <div class="category-icon">📖</div>
+                        <div class="category-name">Bình Giảng</div>
+                        <div class="category-count">120+ bài</div>
+                    </a>
+                    <a href="#" class="category-item">
+                        <div class="category-icon">🎭</div>
+                        <div class="category-name">Bài Giảng</div>
+                        <div class="category-count">500+ bài</div>
+                    </a>
+                    <a href="#" class="category-item">
+                        <div class="category-icon">🙏</div>
+                        <div class="category-name">Suy Niệm</div>
+                        <div class="category-count">200+ bài</div>
+                    </a>
+                    <a href="#" class="category-item">
+                        <div class="category-icon">⚔️</div>
+                        <div class="category-name">Giáo Lý Và Luận Thuyết</div>
+                        <div class="category-count">300+ bài</div>
+                    </a>
+                    <a href="#" class="category-item">
+                        <div class="category-icon">📜</div>
+                        <div class="category-name">Kinh Thánh</div>
+                        <div class="category-count">100+ tài liệu</div>
+                    </a>
+                    <a href="#" class="category-item">
+                        <div class="category-icon">🏛️</div>
+                        <div class="category-name">Văn Học Kinh Điển</div>
+                        <div class="category-count">80+ tác phẩm</div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="category-section">
+                <h3 class="category-title">
+                    <i class="fas fa-clock"></i>
+                    Thời Đại Kỷ Nguyên
+                </h3>
+                <div class="category-grid">
+                    <a href="#" class="category-item">
+                        <div class="category-icon">⏳</div>
+                        <div class="category-name">Trước năm 1500</div>
+                        <div class="category-count">50+ tác phẩm</div>
+                    </a>
+                    <a href="#" class="category-item">
+                        <div class="category-icon">✝️</div>
+                        <div class="category-name">Cải Chánh (thế kỷ 16)</div>
+                        <div class="category-count">150+ tác phẩm</div>
+                    </a>
+                    <a href="#" class="category-item">
+                        <div class="category-icon">🌟</div>
+                        <div class="category-name">Thời Thanh giáo (thế kỷ 17)</div>
+                        <div class="category-count">120+ tác phẩm</div>
+                    </a>
+                    <a href="#" class="category-item">
+                        <div class="category-icon">🎨</div>
+                        <div class="category-name">Thời Phục hưng (thế kỷ 18)</div>
+                        <div class="category-count">80+ tác phẩm</div>
+                    </a>
+                    <a href="#" class="category-item">
+                        <div class="category-icon">🏭</div>
+                        <div class="category-name">Thế kỷ 19</div>
+                        <div class="category-count">90+ tác phẩm</div>
+                    </a>
+                    <a href="#" class="category-item">
+                        <div class="category-icon">🌍</div>
+                        <div class="category-name">Từ năm 1900</div>
+                        <div class="category-count">200+ tác phẩm</div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="category-section">
+                <h3 class="category-title">
+                    <i class="fas fa-compass"></i>
+                    Mục Đích
+                </h3>
+                <div class="category-grid">
+                    <a href="#" class="category-item">
+                        <div class="category-icon">📚</div>
+                        <div class="category-name">Tên sách A-Z</div>
+                    </a>
+                    <a href="#" class="category-item">
+                        <div class="category-icon">👤</div>
+                        <div class="category-name">Tên tác giả A-Z</div>
+                    </a>
+                    <a href="#" class="category-item">
+                        <div class="category-icon">📖</div>
+                        <div class="category-name">Xưa nhất trước</div>
+                    </a>
+                    <a href="#" class="category-item">
+                        <div class="category-icon">⭐</div>
+                        <div class="category-name">Mới nhất trước</div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Thư Viện Cải Chánh</h3>
+                <p>Hơn 3.500 sách và tài liệu thần học Cải Chánh bằng tiếng Việt và song ngữ.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Nguồn Sách</h3>
+                <ul>
+                    <li><a href="#">CCEL</a></li>
+                    <li><a href="#">Project Gutenberg</a></li>
+                    <li><a href="#">LibriVox</a></li>
+                    <li><a href="#">Internet Archive</a></li>
+                    <li><a href="#">Monergism</a></li>
+                    <li><a href="#">Desiring God</a></li>
+                    <li><a href="#">Ligonier</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Định Dạng</h3>
+                <ul>
+                    <li><a href="#">Đọc tại đây (271)</a></li>
+                    <li><a href="#">Có PDF (368)</a></li>
+                    <li><a href="#">Có EPUB (371)</a></li>
+                    <li><a href="#">Có sách nói (234)</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Thể Loại</h3>
+                <ul>
+                    <li><a href="#">Thần học hệ thống</a></li>
+                    <li><a href="#">Bài giảng</a></li>
+                    <li><a href="#">Suy niệm và cầu nguyện</a></li>
+                    <li><a href="#">Giáo lý và luận thuyết</a></li>
+                    <li><a href="#">Tín điều và giáo lý</a></li>
+                    <li><a href="#">Lịch sử và truyền thống</a></li>
+                    <li><a href="#">Văn học kinh điển</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Nguồn sách: CCEL, Project Gutenberg, LibriVox, Internet Archive.</p>
+            <p>Tiền đồ đọc chép lưu trên máy bạn. Bạn dịch và ấn bản hiển thị có thể còn bản quyền.</p>
+            <p><strong>Giới thiệu</strong> • <a href="#">Bản dịch & sách mới</a> • <a href="#">Nhận bài qua email</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // Sample data for the library
+        const libraryData = [
+            {
+                id: 1,
+                title: "Bài Tín Điều Các Sứ Đồ",
+                author: "Hội Thánh sơ khai • Early Church",
+                description: "Tín điều cổ xưa nhất của Kitô giáo, tuyên xưng niềm tin vào Chúa Ba Ngôi.",
+                formats: ['web'],
+                tags: ['tin-điều', 'cổ-đại'],
+                year: 150,
+                category: 'tin-điều',
+                featured: true
+            },
+            {
+                id: 2,
+                title: "Tín Điều Nicaea",
+                author: "Council of Nicaea",
+                description: "Tín điều quan trọng xác định Đức Chúa Jesus là Đấng đồng bản thể với Chúa Cha.",
+                formats: ['web'],
+                tags: ['tin-điều', 'christology'],
+                year: 325,
+                category: 'tin-điều',
+                featured: true
+            },
+            {
+                id: 3,
+                title: "Giáo Lý Heidelberg (Anh-Việt)",
+                author: "Ursinus and Olevianus",
+                description: "Giáo lý quan trọng của truyền thống Cải Chánh, được trình bày dưới hình thức hỏi đáp.",
+                formats: ['web', 'pdf'],
+                tags: ['giáo-lý', 'cải-chánh'],
+                year: 1563,
+                category: 'giáo-lý',
+                featured: true
+            },
+            {
+                id: 4,
+                title: "Giáo Luật của Dordt",
+                author: "Synod of Dort",
+                description: "Tuyên bố thần học về ân điển và tiên định, chống lại chủ nghĩa Arminian.",
+                formats: ['web'],
+                tags: ['tin-điều', 'thần-học'],
+                year: 1619,
+                category: 'tin-điều',
+                featured: true
+            },
+            {
+                id: 5,
+                title: "Giáo Lý Văn Tắt Westminster",
+                author: "Westminster Assembly",
+                description: "Hệ thống giáo lý toàn diện của thế giới nói tiếng Anh.",
+                formats: ['web'],
+                tags: ['giáo-lý', 'cải-chánh'],
+                year: 1647,
+                category: 'giáo-lý',
+                featured: true
+            },
+            {
+                id: 6,
+                title: "Giáo Lý Văn Đáp Baptist (1689)",
+                author: "Baptist Catechism",
+                description: "Giáo lý dựa trên Kinh Thánh theo quan điểm của người Baptist.",
+                formats: ['web'],
+                tags: ['giáo-lý', 'baptist'],
+                year: 1689,
+                category: 'giáo-lý',
+                featured: false
+            },
+            {
+                id: 7,
+                title: "Giáo Lý Văn Đáp Thành Phố Mới",
+                author: "Keller, Anyabwile et al.",
+                description: "Giáo lý hiện đại cho hội thánh ngày nay.",
+                formats: ['web'],
+                tags: ['giáo-lý', 'hiện-đại'],
+                year: 2012,
+                category: 'giáo-lý',
+                featured: false
+            },
+            {
+                id: 8,
+                title: "Hãy Ép Người Ta Phải Vào",
+                author: "Charles Spurgeon",
+                description: "Thuyết giảng mạnh mẽ về sự cần thiết của việc rao giảng Tin Lành.",
+                formats: ['web', 'epub', 'audio'],
+                tags: ['bài-giảng', 'truyền-giáo'],
+                year: 1858,
+                category: 'bài-giảng',
+                featured: true
+            },
+            {
+                id: 9,
+                title: "Bạn Có Cầu Nguyện Không?",
+                author: "J.C. Ryle",
+                description: "Suy niệm về tầm quan trọng của đời sống cầu nguyện.",
+                formats: ['web', 'epub', 'audio'],
+                tags: ['suy-niệm', 'cầu-nguyện'],
+                year: 1880,
+                category: 'suy-niệm',
+                featured: true
+            },
+            {
+                id: 10,
+                title: "Các Con Hãy Chay Đến Cùng Đấng Christ",
+                author: "Robert Murray M'Cheyne",
+                description: "Thuyết giảng kêu gọi con cái đến với Chúa.",
+                formats: ['web', 'epub', 'audio'],
+                tags: ['bài-giảng', 'gia-đình'],
+                year: 1840,
+                category: 'bài-giảng',
+                featured: false
+            },
+            {
+                id: 11,
+                title: "Bảy Mươi Quyết Tâm",
+                author: "Jonathan Edwards",
+                description: "Những quyết tâm sống thánh khiết và cống hiến cho Chúa.",
+                formats: ['web', 'epub', 'audio'],
+                tags: ['suy-niệm', 'thánh-khiết'],
+                year: 1723,
+                category: 'suy-niệm',
+                featured: true
+            },
+            {
+                id: 12,
+                title: "Bánh Hằng Ngày",
+                author: "Robert Murray M'Cheyne",
+                description: "Suy niệm hàng ngày trong Kinh Thánh.",
+                formats: ['web', 'epub', 'audio'],
+                tags: ['suy-niệm', 'kinh-thánh'],
+                year: 1842,
+                category: 'suy-niệm',
+                featured: false
+            },
+            {
+                id: 13,
+                title: "Ý Chí Tự Do Mới Kẻ Nô Lệ",
+                author: "C. H. Spurgeon",
+                description: "Thuyết giảng về ân điển cứu chuộc của Chúa.",
+                formats: ['web', 'epub', 'audio'],
+                tags: ['bài-giảng', 'ân-điển'],
+                year: 1855,
+                category: 'bài-giảng',
+                featured: false
+            },
+            {
+                id: 14,
+                title: "Con Đường Cữa Ân Điển",
+                author: "George Whitefield",
+                description: "Thuyết giảng về con đường cứu rỗi nhờ ân điển.",
+                formats: ['web', 'epub', 'audio'],
+                tags: ['bài-giảng', 'cứu-rỗi'],
+                year: 1741,
+                category: 'bài-giảng',
+                featured: false
+            },
+            {
+                id: 15,
+                title: "Tôi Nhân Trong Tay Đức Chúa Trời Thánh Nể",
+                author: "Jonathan Edwards",
+                description: "Suy niệm về sự thánh khiết và vinh quang của Chúa.",
+                formats: ['web', 'epub', 'audio'],
+                tags: ['suy-niệm', 'thánh-khiết'],
+                year: 1741,
+                category: 'suy-niệm',
+                featured: false
+            },
+            {
+                id: 16,
+                title: "Cây Non, Bông Lúa, Hột Chắc",
+                author: "John Newton",
+                description: "Suy niệm về sự trung tín và ân điển của Chúa.",
+                formats: ['web', 'epub', 'audio'],
+                tags: ['suy-niệm', 'ân-điển'],
+                year: 1772,
+                category: 'suy-niệm',
+                featured: false
+            },
+            {
+                id: 17,
+                title: "Quyển Năng Cữa Một Tính Yêu Mới",
+                author: "Thomas Chalmers",
+                description: "Thuyết giảng về tình yêu mới trong Chúa Cứu Thế.",
+                formats: ['web', 'epub', 'audio'],
+                tags: ['bài-giảng', 'tình-yêu'],
+                year: 1819,
+                category: 'bài-giảng',
+                featured: false
+            },
+            {
+                id: 18,
+                title: "Lời Bánh Vực Thuyết Calvin",
+                author: "C. H. Spurgeon",
+                description: "Thuyết giảng về thần học Calvin.",
+                formats: ['web', 'audio'],
+                tags: ['bài-giảng', 'calvinism'],
+                year: 1861,
+                category: 'bài-giảng',
+                featured: false
+            }
+        ];
+
+        // Additional modern content (2012-2020)
+        const modernContent = [
+            {
+                id: 19,
+                title: "Sự cải đạo",
+                author: "Michael Lawrence",
+                description: "Thần học về sự cứu rỗi và biến đổi đời sống.",
+                formats: ['web'],
+                tags: ['giáo-lý', 'cứu-rỗi'],
+                year: 2012,
+                category: 'giáo-lý',
+                featured: false
+            },
+            {
+                id: 20,
+                title: "Tin",
+                author: "9Marks",
+                description: "Bài học về đức tin và sự tin cậy nơi Chúa.",
+                formats: ['web'],
+                tags: ['giáo-lý', 'đức-tin'],
+                year: 2012,
+                category: 'giáo-lý',
+                featured: false
+            },
+            {
+                id: 21,
+                title: "Sức khỏe, giàu có và Phúc Âm (thật)",
+                author: "9Marks",
+                description: "Suy nghĩ về Phúc Âm chân thật so với các giáo lý sai lầm.",
+                formats: ['web'],
+                tags: ['giáo-lý', 'phúc-âm'],
+                year: 2012,
+                category: 'giáo-lý',
+                featured: false
+            },
+            {
+                id: 22,
+                title: "Chín dấu hiệu của một Hội Thánh khỏe mạnh",
+                author: "Mark Dever",
+                description: "Đặc điểm của hội thánh theo Kinh Thánh.",
+                formats: ['web'],
+                tags: ['giáo-lý', 'hội-thánh'],
+                year: 2012,
+                category: 'giáo-lý',
+                featured: false
+            },
+            {
+                id: 23,
+                title: "Kỷ luật của Hội Thánh",
+                author: "9Marks",
+                description: "Vai trò của kỷ luật trong đời sống hội thánh.",
+                formats: ['web'],
+                tags: ['giáo-lý', 'kỷ-luật'],
+                year: 2012,
+                category: 'giáo-lý',
+                featured: false
+            },
+            {
+                id: 24,
+                title: "Trường lào của Hội Thánh",
+                author: "9Marks",
+                description: "Sự trưởng thành thuộc linh trong cộng đồng đức tin.",
+                formats: ['web'],
+                tags: ['giáo-lý', 'trưởng-thành'],
+                year: 2012,
+                category: 'giáo-lý',
+                featured: false
+            },
+            {
+                id: 25,
+                title: "Tư cách thành viên của Hội Thánh",
+                author: "9Marks",
+                description: "Ý nghĩa và trách nhiệm của việc trở thành thành viên hội thánh.",
+                formats: ['web'],
+                tags: ['giáo-lý', 'thành-viên'],
+                year: 2012,
+                category: 'giáo-lý',
+                featured: false
+            },
+            {
+                id: 26,
+                title: "Giảng Giải Kinh",
+                author: "9Marks",
+                description: "Tầm quan trọng của việc giảng dạy Kinh Thánh trong hội thánh.",
+                formats: ['web'],
+                tags: ['giáo-lý', 'giảng-dạy'],
+                year: 2012,
+                category: 'giáo-lý',
+                featured: false
+            },
+            {
+                id: 27,
+                title: "Sự cầu nguyện",
+                author: "9Marks",
+                description: "Đời sống cầu nguyện trong hội thánh.",
+                formats: ['web'],
+                tags: ['giáo-lý', 'cầu-nguyện'],
+                year: 2012,
+                category: 'giáo-lý',
+                featured: false
+            },
+            {
+                id: 28,
+                title: "Hội Thánh không mảnh là gì?",
+                author: "Mark Dever",
+                description: "Hiểu biết về Hội Thánh theo Kinh Thánh.",
+                formats: ['web'],
+                tags: ['giáo-lý', 'hội-thánh'],
+                year: 2012,
+                category: 'giáo-lý',
+                featured: false
+            },
+            {
+                id: 29,
+                title: "Chúa Jesus là ai?",
+                author: "9Marks",
+                description: "Thần tính và công tác của Chúa Cứu Thế.",
+                formats: ['web'],
+                tags: ['giáo-lý', 'christology'],
+                year: 2012,
+                category: 'giáo-lý',
+                featured: false
+            },
+            {
+                id: 30,
+                title: "Tin Lành là gì?",
+                author: "Mark Dever",
+                description: "Giải thích về Tin Lành cứu rỗi.",
+                formats: ['web'],
+                tags: ['giáo-lý', 'phúc-âm'],
+                year: 2012,
+                category: 'giáo-lý',
+                featured: false
+            }
+        ];
+
+        // Combine all data
+        const allContent = [...libraryData, ...modernContent];
+
+        // DOM Elements
+        const featuredGrid = document.getElementById('featured-content');
+        const contentGrid = document.getElementById('content-grid');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const searchInput = document.getElementById('search-input');
+
+        // Format icons mapping
+        const formatIcons = {
+            web: '🌐',
+            pdf: '📄',
+            epub: '📖',
+            audio: '🎧'
+        };
+
+        // Render featured content
+        function renderFeaturedContent() {
+            const featuredItems = allContent.filter(item => item.featured).slice(0, 6);
+            
+            featuredGrid.innerHTML = featuredItems.map(item => `
+                <div class="featured-card fade-in">
+                    <div class="featured-number">${item.id}</div>
+                    <h3 class="featured-title">${item.title}</h3>
+                    <div class="featured-author">${item.author}</div>
+                    <div class="featured-meta">
+                        <span>📅 ${item.year}</span>
+                        <span class="meta-tag">${item.category}</span>
+                    </div>
+                    <p class="featured-description">${item.description}</p>
+                    <div class="format-icons">
+                        ${item.formats.map(format => `<span class="format-icon" title="${format}">${formatIcons[format] || format}</span>`).join('')}
+                    </div>
+                    <a href="#" class="featured-link">
+                        Đọc ngay <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            `).join('');
+        }
+
+        // Render content grid
+        function renderContentGrid(filteredData = allContent) {
+            contentGrid.innerHTML = filteredData.slice(0, 12).map(item => `
+                <div class="content-card fade-in">
+                    <h3 class="card-title">${item.title}</h3>
+                    <div class="card-meta">
+                        <span class="meta-tag author">${item.author}</span>
+                        <span class="meta-tag">${item.year}</span>
+                        <span class="meta-tag type">${item.category}</span>
+                    </div>
+                    <p class="card-description">${item.description}</p>
+                    <div class="card-footer">
+                        <span>${item.tags.join(', ')}</span>
+                        <div class="format-icons">
+                            ${item.formats.map(format => `<span class="format-icon" title="${format}">${formatIcons[format] || format}</span>`).join('')}
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Filter function
+        function filterContent(filter) {
+            let filteredData = [...allContent];
+            
+            // Apply search filter
+            const searchTerm = searchInput.value.toLowerCase();
+            if (searchTerm) {
+                filteredData = filteredData.filter(item => 
+                    item.title.toLowerCase().includes(searchTerm) ||
+                    item.author.toLowerCase().includes(searchTerm) ||
+                    item.description.toLowerCase().includes(searchTerm) ||
+                    item.tags.some(tag => tag.toLowerCase().includes(searchTerm))
+                );
+            }
+            
+            // Apply category filter
+            switch(filter) {
+                case 'pdf':
+                    filteredData = filteredData.filter(item => item.formats.includes('pdf'));
+                    break;
+                case 'epub':
+                    filteredData = filteredData.filter(item => item.formats.includes('epub'));
+                    break;
+                case 'audio':
+                    filteredData = filteredData.filter(item => item.formats.includes('audio'));
+                    break;
+                case 'theology':
+                    filteredData = filteredData.filter(item => item.category === 'giáo-lý' || item.category === 'tin-điều');
+                    break;
+                case 'sermon':
+                    filteredData = filteredData.filter(item => item.category === 'bài-giảng');
+                    break;
+                case 'devotional':
+                    filteredData = filteredData.filter(item => item.category === 'suy-niệm');
+                    break;
+                case 'new':
+                    filteredData = filteredData.filter(item => item.year >= 2000);
+                    break;
+            }
+            
+            renderContentGrid(filteredData);
+        }
+
+        // Event listeners
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                filterContent(btn.dataset.filter);
+            });
+        });
+
+        searchInput.addEventListener('input', () => {
+            const activeFilter = document.querySelector('.filter-btn.active').dataset.filter;
+            filterContent(activeFilter);
+        });
+
+        // Initialize
+        renderFeaturedContent();
+        renderContentGrid();
+
+        // Mobile menu toggle
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        if (mobileMenuToggle && navLinks) {
+            mobileMenuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.content-card, .featured-card, .category-item, .stat-card, .step').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
